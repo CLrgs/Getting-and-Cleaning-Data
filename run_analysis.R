@@ -68,4 +68,4 @@ data1$Activity <- factor(data1$Activity, levels = c(1:6), labels = Activity$V2)
 ## the new wide table is "tidy_data"
 tidy_data <- dcast(melt(data1), Subjects + Activity ~ variable, mean)
 ## write the new table to "tidy_data.txt"
-write.table(tidy_data, file = "tidy_data.txt")
+write.table(tidy_data, file = "tidy_data.txt", row.names = FALSE, quote = FALSE)
