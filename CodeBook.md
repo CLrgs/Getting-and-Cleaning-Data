@@ -5,10 +5,16 @@
 This Code Book summarizes the variables of the resulting file "tidy_data.txt"
 
 The file has 2 identifiers (1st, 2nd collumns):
-- Subjects: the identity of subjects (values 1:30)
-- Activity: the kind of activity performed, with 6 levels:
--- 
+- Subjects: the identity of subjects (values 1:30)  
+- Activity: the kind of activity performed, with 6 levels:  
+--1 WALKING  
+--2 WALKING_UPSTAIRS  
+--3 WALKING_DOWNSTAIRS  
+--4 SITTING  
+--5 STANDING  
+--6 LAYING  
 
+The rest of the collumns (3 : 88) are the variables 
 - tBodyAcc-mean()-X  
 - tBodyAcc-mean()-Y  
 - tBodyAcc-mean()-Z  
