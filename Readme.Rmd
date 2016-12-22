@@ -36,15 +36,14 @@ Now we have one file ("data") with
 2) Extracts only the measurements on the mean and standard deviation for each measurement.
 2.a) take/read the file "feature" and create a dataframe (file = features1 ) containing only mean & sd features. 
 features1 <- features[grep("[M,m]ean|[S,s]td", features$V2), ]
-The dataframe has 2 collumns: the 1st with the Nr. of variable/feature (i.e.: V1, V2 etc) and the 2nd with the full name of the variable/feature (i.e.: . There are 86 such variables(rows) in the dataframe.
-2.b) choose from "data" (created in previous step Nr.2) the  first two collumns (= "Subjects" + "Activity") plus all collumns matching the previous vector (features1$V1) and pass them to a new data frame : "data1"
+The dataframe has 2 collumns: the 1st with the Nr. of variable/feature (i.e.: 1, 2 etc) and the 2nd with the full name of the variable/feature (i.e.: tBodyAcc-mean()-X, tBodyAcc-mean()-Y etc). There are 86 such variables(rows) in the dataframe.
+2.b) choose from "data" (created in previous step Nr.2) the  first two collumns (= "Subjects" + "Activity") plus all collumns matching vector features1$V1 (i.e.: the number of the variable) and pass them to a new data frame : "data1"
 data1 <- cbind(data[,1:2], select(data, one_of(features1$V1)))
 The new dataframe has 88 collumns/variables ( = 2 + 86 ) and 10299 rows/observations.
 
 
 3) Uses descriptive activity names to name the activities in the data set
-"Activity" is a factor with 6 levels 1:6. We rename the labels taking the new names from the file 
-"ativity_labels.txt"
+"Activity" is a factor with 6 levels 1:6. We rename the labels taking the new names from the file "activity_labels.txt"
 data1$Activity <- factor(data1$Activity, levels = c(1:6), labels = Activity$V2)
 
 
@@ -52,8 +51,14 @@ data1$Activity <- factor(data1$Activity, levels = c(1:6), labels = Activity$V2)
 Rename variables (collunns):
 col. 1 + 2 : "Subjects", "Activity"
 col. 3 up to 88: names(data1)[3:88] <- features1$V2
-Now the file "data1"
-
+Now the file "data1" has 88 collumns:
+1st: "Subjects"
+2nd: "Activity"
+3rd: "tBodyAcc-mean()-X"
+4th: "tBodyAcc-mean()-Y"
+..
+..
+88th: "angle(Z,gravityMean)"
 
 5) From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 Use the "reshape2" package. Melt "data1" and dcast it again having calcuated the means. 
