@@ -4,8 +4,10 @@ author: "Constantinos Lirigos"
 date: "22December 2016"
 output: html_document
 ---
-This is peer-graded assignment for the coursera Getting and Cleaning Data.
-The script required by the assignment , called "run_analysis.R" does the following:
+#Coursera Course 
+#Getting and Cleaning Data  
+This is peer-graded assignment for the coursera Getting and Cleaning Data.  
+The script required by the assignment , called "run_analysis.R" does the following:  
 
 ##1) Merges the training and the test sets to create one data set.
 ###1.a) Read files  
