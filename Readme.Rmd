@@ -9,9 +9,9 @@ The script required by the assignment , called "run_analysis.R" does the followi
 
 ###1) Merges the training and the test sets to create one data set.
 ####test set:
-    "X_test.txt": 2947 obs, 561 variables (from "features.txt")
-    "subject_test.txt": 2947 obs, 1 variable (subjects)
-    "y_test.txt": 2947 obs, 1 variable (activity labels)
+"X_test.txt": 2947 obs, 561 variables (from "features.txt")
+"subject_test.txt": 2947 obs, 1 variable (subjects)
+"y_test.txt": 2947 obs, 1 variable (activity labels)
 
 train set:
 "X_train.txt": 7352 obs, 561 variables (from "features.txt")
