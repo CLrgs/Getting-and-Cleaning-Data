@@ -1,4 +1,6 @@
 
+This Code Book summarizes the variables of file "tidy_data.txt"
+
 
 
 1 tBodyAcc-mean()-X  
