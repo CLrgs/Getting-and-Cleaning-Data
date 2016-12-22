@@ -7,33 +7,37 @@ output: html_document
 This is peer-graded assignment for the coursera Getting and Cleaning Data.
 The script required by the assignment , called "run_analysis.R" does the following:
 
-##1) Merges the training and the test sets to create one data set.
-####test set:
--"X_test.txt": 2947 obs, 561 variables (from "features.txt")
--"subject_test.txt": 2947 obs, 1 variable (subjects)
--"y_test.txt": 2947 obs, 1 variable (activity labels)
+1) Merges the training and the test sets to create one data set.
+1.a) Read files
+test set:
+"X_test.txt": 2947 obs, 561 variables (from "features.txt")
+"subject_test.txt": 2947 obs, 1 variable (subjects)
+"y_test.txt": 2947 obs, 1 variable (activity labels)
 
-
-####train set:
+train set:
 "X_train.txt": 7352 obs, 561 variables (from "features.txt")
-
 "subject_train.txt":7352 obs, 1 variable (subjects)
-
 "y_train.txt": 7352 obs, 1 variable (activity labels)
 
-
-1.a) merge 3 files in test set to one = "test" and 3 files in train set to one = "train" (with cbind)
+1.b) merge files:
+Merge 3 files in test set to one = "test" and 
+3 files in train set to one = "train" (with cbind)
+In each file:
 1st collumn: subject
 2nd collumn: activity
-3rd...563 collumns: 561 features
-1.b) merge "test" & "train" to one = "data" (with rbind)
-convert first 2 collumns to factors
-Now we have one file ("data") with all observations (10299 = 7352 + 2947) 
+3rd...563 collumns: 561 features/variables
 
+1.b) merge "test" & "train" to one file named "data" (with rbind)
+convert first 2 collumns to factors
+Now we have one file ("data") with 
+- all rows/observations (10299 = 7352 + 2947) and 
+- 563 collumns/variables/features : 1 col. for subjects, 1 col. for activity and 561 collumns for features
 
 2) Extracts only the measurements on the mean and standard deviation for each measurement.
-2.a) create a vector (= features1 ) containing only mean & sd features. There are 86 such variables.
-2.b) choose from "data" the  first two collumns plus all collumns matching the previous vector (features1$V1) and pass them to a new data frame : "data1"
+2.a) take/read the file "feature" and create a dataframe (file = features1 ) containing only mean & sd features. 
+features1 <- features[grep("[M,m]ean|[S,s]td", features$V2), ]
+The dataframe has 2 collumns: the 1st with the Nr. of variable/feature (i.e.: V1, V2 etc) and the 2nd with the full name of the variable/feature (i.e.: . There are 86 such variables(rows) in the dataframe.
+2.b) choose from "data" (created in previous step Nr.2) the  first two collumns (= "Subjects" + "Activity") plus all collumns matching the previous vector (features1$V1) and pass them to a new data frame : "data1"
 data1 <- cbind(data[,1:2], select(data, one_of(features1$V1)))
 The new dataframe has 88 collumns/variables ( = 2 + 86 ) and 10299 rows/observations.
 
