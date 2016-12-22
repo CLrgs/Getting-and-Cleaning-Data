@@ -4,9 +4,10 @@
 #CODEBOOK
 This Code Book summarizes the variables of the resulting file "tidy_data.txt"
 
-The file has 2 identifiers:
-
-
+The file has 2 identifiers (1st, 2nd collumns):
+- Subjects: the identity of subjects (values 1:30)
+- Activity: the kind of activity performed, with 6 levels:
+-- 
 
 - tBodyAcc-mean()-X  
 - tBodyAcc-mean()-Y  
